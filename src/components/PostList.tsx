@@ -1,19 +1,32 @@
+import React from "react";
 import { postAPI } from "../store/api/postAPI";
 import PostItem from "./PostItem";
-import { Col, Divider, Row } from "antd";
+import { Col, Divider, Input, Row } from "antd";
 import SpinnerPostList from "./SpinnerPostList";
 // import { IPost } from "../models/IPost";
 
 const PostList = () => {
   // const [limit, setLimit] = React.useState<number>(9);
+  const [searchTitle, setSearchTitle] = React.useState<string>("");
   const {
-    data: posts = [],
+    data: posts,
     error,
     isLoading,
-  } = postAPI.useFetchAllPostsQuery(9);
+  } = postAPI.useFetchAllPostsQuery(searchTitle);
+
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTitle(event.target.value);
+  };
 
   return (
     <>
+      <div>
+        <Input
+          placeholder="What are you looking for?"
+          size="large"
+          onChange={onChange}
+        />
+      </div>
       <Divider orientation="center">Store</Divider>
       {isLoading && <SpinnerPostList />}
       {error && <h1>Something wrong...</h1>}
