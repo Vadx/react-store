@@ -1,4 +1,4 @@
-import { Button, Divider, Card } from "antd";
+import { Button, Divider, Card, Descriptions } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
 import { postAPI } from "../../store/api/postAPI";
 import { ArrowLeftOutlined } from "@ant-design/icons";
@@ -23,10 +23,13 @@ const SinglePostPage = () => {
       {isError && <>Something goes Wrong</>}
       {post && (
         <Card>
-          <h1>{post.title}</h1>
-          <p>{post.description}</p>
-          <p>${post.price}</p>
-          <p>{post.rating}</p>
+          <Descriptions title={post.title} layout="vertical">
+            <Descriptions.Item label="Price">${post.price}</Descriptions.Item>
+            <Descriptions.Item label="Rating">{post.rating}</Descriptions.Item>
+            <Descriptions.Item label="Description">
+              {post.description}
+            </Descriptions.Item>
+          </Descriptions>
         </Card>
       )}
     </>
