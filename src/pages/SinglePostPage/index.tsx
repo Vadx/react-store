@@ -1,4 +1,4 @@
-import { Button, Divider, Card, Descriptions } from "antd";
+import { Button, Divider, Card, Descriptions, Skeleton } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
 import { postAPI } from "../../store/api/postAPI";
 import { ArrowLeftOutlined } from "@ant-design/icons";
@@ -19,7 +19,11 @@ const SinglePostPage = () => {
         Go back
       </Button>
       <Divider />
-      {isFetching && <>Loading...</>}
+      {isFetching && (
+        <Card>
+          <Skeleton />
+        </Card>
+      )}
       {isError && <>Something goes Wrong</>}
       {post && (
         <Card>

@@ -3,16 +3,17 @@ import { postAPI } from "../store/api/postAPI";
 import PostItem from "./PostItem";
 import { Col, Divider, Input, Row } from "antd";
 import SpinnerPostList from "./SpinnerPostList";
-// import { IPost } from "../models/IPost";
+// import { IProduct } from "../models/IProduct";
 
 const PostList = () => {
   // const [limit, setLimit] = React.useState<number>(9);
   const [searchTitle, setSearchTitle] = React.useState<string>("");
+  const deferredSearch = React.useDeferredValue(searchTitle);
   const {
     data: posts,
     error,
     isLoading,
-  } = postAPI.useFetchAllPostsQuery(searchTitle);
+  } = postAPI.useFetchAllPostsQuery(deferredSearch);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTitle(event.target.value);

@@ -1,5 +1,5 @@
 import { Card, Divider, Typography } from "antd";
-import { IPost } from "../models/IPost";
+import { IProduct } from "../models/IProduct";
 import { Link } from "react-router-dom";
 import { ArrowRightOutlined } from "@ant-design/icons";
 
@@ -7,7 +7,7 @@ const { Meta } = Card;
 const { Title, Text } = Typography;
 
 export interface PostItemProps {
-  post: IPost;
+  post: IProduct;
 }
 
 const PostItem = ({ post }: PostItemProps) => {
