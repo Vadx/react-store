@@ -29,6 +29,7 @@ const PostItem = ({ post }: PostItemProps) => {
             <Text code>${post.price}</Text>
           </Title>
         </Divider>
+        <Text>Rating: {post.rating}</Text>
         <Text type="secondary">{post.description.substring(0, 70)}</Text>
       </Card>
     </>

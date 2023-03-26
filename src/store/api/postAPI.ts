@@ -12,34 +12,19 @@ export const postAPI = createApi({
     getSinglePost: build.query({
       query: (postId) => `/products/${postId}`,
     }),
-    fetchAllPosts: build.query<
-      IProduct[],
-      { title: string; sortOrder?: string }
-    >({
-      query: ({ title, sortOrder = "" }) => {
-        const sortParam = sortOrder ? `&_sort=price&_order=${sortOrder}` : "";
-        return `products?q=${title}${sortParam}`;
+    fetchAllPosts: build.query<IProduct[], { title: string; sortBy?: string }>({
+      query: ({ title, sortBy }) => {
+        let queryString = `products?q=${title}`;
+        if (sortBy === "PriceHighToLow") {
+          queryString += "&_sort=price&_order=desc";
+        } else if (sortBy === "PriceLowToHigh") {
+          queryString += "&_sort=price&_order=asc";
+        } else if (sortBy === "TopRatingFirst") {
+          queryString += "&_sort=rating&_order=desc";
+        }
+        return queryString;
       },
       providesTags: (result) => ["Post"],
-      transformResponse: (response: any) => {
-        if (response.data && response.args.sortOrder) {
-          const sortOrder = response.args.sortOrder.toLowerCase();
-
-          if (sortOrder === "asc") {
-            return {
-              ...response,
-              data: [...response.data].sort((a, b) => a.price - b.price),
-            };
-          } else if (sortOrder === "asc") {
-            return {
-              ...response,
-              data: [...response.data].sort((a, b) => b.price - a.price),
-            };
-          }
-        }
-
-        return response;
-      },
     }),
   }),
 });

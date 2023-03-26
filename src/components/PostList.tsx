@@ -8,7 +8,9 @@ const { Content, Sider } = Layout;
 
 const PostList = () => {
   const [searchTitle, setSearchTitle] = React.useState<string>("");
-  const [sortByPrice, setSortOrder] = React.useState<"desc" | "asc">();
+  const [sortOrder, setSortOrder] = React.useState<
+    "PriceLowToHigh" | "PriceHighToLow" | "TopRatingFirst"
+  >();
 
   const {
     data: posts,
@@ -16,7 +18,7 @@ const PostList = () => {
     isLoading,
   } = postAPI.useFetchAllPostsQuery({
     title: searchTitle,
-    sortOrder: sortByPrice,
+    sortBy: sortOrder,
   });
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +28,12 @@ const PostList = () => {
   const handleSortOrderChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
-    setSortOrder(event.target.value as "desc" | "asc");
+    setSortOrder(
+      event.target.value as
+        | "PriceLowToHigh"
+        | "PriceHighToLow"
+        | "TopRatingFirst"
+    );
   };
 
   return (
@@ -47,12 +54,13 @@ const PostList = () => {
           <label htmlFor="sortOrder">Sort by:</label>
           <select
             id="sortOrder"
-            value={sortByPrice}
+            value={sortOrder}
             onChange={handleSortOrderChange}
           >
-            <option value="">Select</option>
-            <option value="desc">Price Low to High</option>
-            <option value="asc">Price High to Low</option>
+            <option value="">Default</option>
+            <option value="PriceLowToHigh">Price Low to High</option>
+            <option value="PriceHighToLow">Price High to Low</option>
+            <option value="TopRatingFirst">Top Rating First</option>
           </select>
         </Sider>
         <Content>
