@@ -1,44 +1,71 @@
 import React from "react";
 import { postAPI } from "../store/api/postAPI";
 import PostItem from "./PostItem";
-import { Col, Divider, Input, Row } from "antd";
+import { Col, Divider, Input, Row, Layout } from "antd";
 import SpinnerPostList from "./SpinnerPostList";
-// import { IProduct } from "../models/IProduct";
+
+const { Content, Sider } = Layout;
 
 const PostList = () => {
-  // const [limit, setLimit] = React.useState<number>(9);
   const [searchTitle, setSearchTitle] = React.useState<string>("");
-  const deferredSearch = React.useDeferredValue(searchTitle);
+  const [sortByPrice, setSortOrder] = React.useState<"desc" | "asc">();
+
   const {
     data: posts,
     error,
     isLoading,
-  } = postAPI.useFetchAllPostsQuery(deferredSearch);
+  } = postAPI.useFetchAllPostsQuery({
+    title: searchTitle,
+    sortOrder: sortByPrice,
+  });
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTitle(event.target.value);
   };
 
+  const handleSortOrderChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setSortOrder(event.target.value as "desc" | "asc");
+  };
+
   return (
     <>
-      <div>
-        <Input
-          placeholder="What are you looking for?"
-          size="large"
-          onChange={onChange}
-        />
-      </div>
       <Divider orientation="center">Store</Divider>
-      {isLoading && <SpinnerPostList />}
       {error && <h1>Something wrong...</h1>}
-      <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-        {posts?.map((post) => (
-          <Col className="gutter-row" span={8} key={post.id}>
-            <PostItem post={post} />
-          </Col>
-        ))}
-      </Row>
-      {/* <Divider /> */}
+
+      <Layout>
+        <Sider
+          width={220}
+          style={{ background: "transparent", paddingRight: 20 }}
+        >
+          <div>
+            <Input placeholder="Search..." size="large" onChange={onChange} />
+          </div>
+          <Divider />
+
+          <label htmlFor="sortOrder">Sort by:</label>
+          <select
+            id="sortOrder"
+            value={sortByPrice}
+            onChange={handleSortOrderChange}
+          >
+            <option value="">Select</option>
+            <option value="desc">Price Low to High</option>
+            <option value="asc">Price High to Low</option>
+          </select>
+        </Sider>
+        <Content>
+          {isLoading && <SpinnerPostList />}
+          <Row gutter={{ xs: 6, sm: 12, md: 22, lg: 28 }}>
+            {posts?.map((post) => (
+              <Col className="gutter-row" span={8} key={post.id}>
+                <PostItem post={post} />
+              </Col>
+            ))}
+          </Row>
+        </Content>
+      </Layout>
     </>
   );
 };

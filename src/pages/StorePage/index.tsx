@@ -5,9 +5,9 @@ const StorePage = () => {
   return (
     <>
       <Seo
-        title="Articles"
-        metaDescription="Articles page"
-        metaKeywords="Articles page Keywords"
+        title="Store"
+        metaDescription="Store page"
+        metaKeywords="Store page Keywords"
       />
       <PostList />
     </>

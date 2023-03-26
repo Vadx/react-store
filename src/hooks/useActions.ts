@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { bindActionCreators } from "@reduxjs/toolkit";
 
 const actions = {
-  // ...Actions,
+  // ...sortSliceActions,
 };
 
 export const useActions = () => {
