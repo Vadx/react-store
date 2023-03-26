@@ -11,6 +11,8 @@ const PostList = () => {
   const [sortOrder, setSortOrder] = React.useState<
     "PriceLowToHigh" | "PriceHighToLow" | "TopRatingFirst"
   >();
+  const [minPrice, setMinPrice] = React.useState<number | undefined>();
+  const [maxPrice, setMaxPrice] = React.useState<number | undefined>();
 
   const {
     data: posts,
@@ -19,6 +21,8 @@ const PostList = () => {
   } = postAPI.useFetchAllPostsQuery({
     title: searchTitle,
     sortBy: sortOrder,
+    minPrice: minPrice,
+    maxPrice: maxPrice,
   });
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +38,16 @@ const PostList = () => {
         | "PriceHighToLow"
         | "TopRatingFirst"
     );
+  };
+
+  const handleMinPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(event.target.value);
+    setMinPrice(isNaN(value) ? undefined : value);
+  };
+
+  const handleMaxPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(event.target.value);
+    setMaxPrice(isNaN(value) ? undefined : value);
   };
 
   return (
@@ -62,6 +76,26 @@ const PostList = () => {
             <option value="PriceHighToLow">Price High to Low</option>
             <option value="TopRatingFirst">Top Rating First</option>
           </select>
+
+          <Divider />
+          <div>
+            <label htmlFor="min-price">Min Price:</label>
+            <input
+              type="number"
+              id="min-price"
+              value={minPrice}
+              onChange={handleMinPriceChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="max-price">Max Price:</label>
+            <input
+              type="number"
+              id="max-price"
+              value={maxPrice}
+              onChange={handleMaxPriceChange}
+            />
+          </div>
         </Sider>
         <Content>
           {isLoading && <SpinnerPostList />}

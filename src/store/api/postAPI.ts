@@ -12,8 +12,11 @@ export const postAPI = createApi({
     getSinglePost: build.query({
       query: (postId) => `/products/${postId}`,
     }),
-    fetchAllPosts: build.query<IProduct[], { title: string; sortBy?: string }>({
-      query: ({ title, sortBy }) => {
+    fetchAllPosts: build.query<
+      IProduct[],
+      { title: string; sortBy?: string; minPrice?: number; maxPrice?: number }
+    >({
+      query: ({ title, sortBy, minPrice, maxPrice }) => {
         let queryString = `products?q=${title}`;
         if (sortBy === "PriceHighToLow") {
           queryString += "&_sort=price&_order=desc";
@@ -21,6 +24,12 @@ export const postAPI = createApi({
           queryString += "&_sort=price&_order=asc";
         } else if (sortBy === "TopRatingFirst") {
           queryString += "&_sort=rating&_order=desc";
+        }
+        if (minPrice !== undefined) {
+          queryString += `&price_gte=${minPrice}`;
+        }
+        if (maxPrice !== undefined) {
+          queryString += `&price_lte=${maxPrice}`;
         }
         return queryString;
       },
