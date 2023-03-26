@@ -3,6 +3,7 @@ import { postAPI } from "../store/api/postAPI";
 import PostItem from "./PostItem";
 import { Col, Divider, Input, Row, Layout } from "antd";
 import SpinnerPostList from "./SpinnerPostList";
+import { StoreColors } from "../models/CommonTypes";
 
 const { Content, Sider } = Layout;
 
@@ -13,16 +14,19 @@ const PostList = () => {
   >();
   const [minPrice, setMinPrice] = React.useState<number | undefined>();
   const [maxPrice, setMaxPrice] = React.useState<number | undefined>();
+  const [colors, setColors] = React.useState<StoreColors[] | string[]>([]);
 
   const {
     data: posts,
     error,
     isLoading,
+    isFetching,
   } = postAPI.useFetchAllPostsQuery({
-    title: searchTitle,
+    searchTitle: searchTitle,
     sortBy: sortOrder,
     minPrice: minPrice,
     maxPrice: maxPrice,
+    colors: colors,
   });
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,6 +52,15 @@ const PostList = () => {
   const handleMaxPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.target.value);
     setMaxPrice(isNaN(value) ? undefined : value);
+  };
+
+  const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked, value } = event.target;
+    if (checked) {
+      setColors((prevColors) => [...prevColors, value]);
+    } else {
+      setColors((prevColors) => prevColors.filter((color) => color !== value));
+    }
   };
 
   return (
@@ -96,9 +109,71 @@ const PostList = () => {
               onChange={handleMaxPriceChange}
             />
           </div>
+          <Divider />
+          <span>Colors: </span>
+          <label htmlFor="color-black">
+            <input
+              type="checkbox"
+              id="color-black"
+              name="color"
+              value="Black"
+              onChange={handleColorChange}
+            />
+            Black
+          </label>
+          <label htmlFor="color-red">
+            <input
+              type="checkbox"
+              id="color-red"
+              name="color"
+              value="Red"
+              onChange={handleColorChange}
+            />
+            Red
+          </label>
+          <label htmlFor="color-white">
+            <input
+              type="checkbox"
+              id="color-white"
+              name="color"
+              value="White"
+              onChange={handleColorChange}
+            />
+            White
+          </label>
+          <label htmlFor="color-blue">
+            <input
+              type="checkbox"
+              id="color-blue"
+              name="color"
+              value="Blue"
+              onChange={handleColorChange}
+            />
+            Blue
+          </label>
+          <label htmlFor="color-gray">
+            <input
+              type="checkbox"
+              id="color-gray"
+              name="color"
+              value="Gray"
+              onChange={handleColorChange}
+            />
+            Gray
+          </label>
+          <label htmlFor="color-brown">
+            <input
+              type="checkbox"
+              id="color-brown"
+              name="color"
+              value="Brown"
+              onChange={handleColorChange}
+            />
+            Brown
+          </label>
         </Sider>
         <Content>
-          {isLoading && <SpinnerPostList />}
+          {(isLoading || isFetching) && <SpinnerPostList />}
           <Row gutter={{ xs: 6, sm: 12, md: 22, lg: 28 }}>
             {posts?.map((post) => (
               <Col className="gutter-row" span={8} key={post.id}>

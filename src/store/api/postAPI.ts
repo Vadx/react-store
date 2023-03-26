@@ -2,6 +2,14 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IProduct } from "../../models/IProduct";
 import { BASE_URL } from "../../config";
 
+interface ISort {
+  searchTitle: string;
+  sortBy?: string;
+  minPrice?: number;
+  maxPrice?: number;
+  colors?: string[];
+}
+
 export const postAPI = createApi({
   reducerPath: "postAPI",
   baseQuery: fetchBaseQuery({
@@ -12,12 +20,9 @@ export const postAPI = createApi({
     getSinglePost: build.query({
       query: (postId) => `/products/${postId}`,
     }),
-    fetchAllPosts: build.query<
-      IProduct[],
-      { title: string; sortBy?: string; minPrice?: number; maxPrice?: number }
-    >({
-      query: ({ title, sortBy, minPrice, maxPrice }) => {
-        let queryString = `products?q=${title}`;
+    fetchAllPosts: build.query<IProduct[], ISort>({
+      query: ({ searchTitle, sortBy, minPrice, maxPrice, colors }) => {
+        let queryString = `products?q=${searchTitle}`;
         if (sortBy === "PriceHighToLow") {
           queryString += "&_sort=price&_order=desc";
         } else if (sortBy === "PriceLowToHigh") {
@@ -30,6 +35,10 @@ export const postAPI = createApi({
         }
         if (maxPrice !== undefined) {
           queryString += `&price_lte=${maxPrice}`;
+        }
+        if (colors && colors.length > 0) {
+          const colorsStr = colors.join("&color=");
+          queryString += `&color=${colorsStr}`;
         }
         return queryString;
       },
