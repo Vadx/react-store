@@ -1,4 +1,4 @@
-import PostList from "../../components/PostList";
+import ProductList from "../../components/ProductList";
 import Seo from "../../components/SEO";
 
 const StorePage = () => {
@@ -9,7 +9,7 @@ const StorePage = () => {
         metaDescription="Store page"
         metaKeywords="Store page Keywords"
       />
-      <PostList />
+      <ProductList />
     </>
   );
 };

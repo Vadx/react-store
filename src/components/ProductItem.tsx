@@ -10,7 +10,7 @@ export interface PostItemProps {
   post: IProduct;
 }
 
-const PostItem = ({ post }: PostItemProps) => {
+const ProductItem = ({ post }: PostItemProps) => {
   return (
     <>
       <Card
@@ -22,18 +22,21 @@ const PostItem = ({ post }: PostItemProps) => {
           </Link>,
         ]}
       >
-        <Meta title={post.title} />{" "}
+        <Link to={`/store/${post.id}`}>
+          <Meta title={post.title} />{" "}
+        </Link>
         <Divider>
           <Title level={3}>
             <Text type="secondary">Price: </Text>
             <Text code>${post.price}</Text>
           </Title>
         </Divider>
-        <Text>Rating: {post.rating}</Text>
+        <Title level={5}>Rating: {post.rating}</Title>
+        <Title level={5}>Color: {post.color}</Title>
         <Text type="secondary">{post.description.substring(0, 70)}</Text>
       </Card>
     </>
   );
 };
 
-export default PostItem;
+export default ProductItem;

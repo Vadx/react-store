@@ -1,6 +1,6 @@
 import { Card, Col, Row, Skeleton, Space } from "antd";
 
-const SpinnerPostList = () => {
+const SpinnerList = () => {
   return (
     <>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
@@ -19,4 +19,4 @@ const SpinnerPostList = () => {
   );
 };
 
-export default SpinnerPostList;
+export default SpinnerList;

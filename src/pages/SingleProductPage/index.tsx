@@ -1,9 +1,9 @@
 import { Button, Divider, Card, Descriptions, Skeleton } from "antd";
 import { useParams, useNavigate } from "react-router-dom";
-import { postAPI } from "../../store/api/postAPI";
+import { productAPI } from "../../store/api/productAPI";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
-const SinglePostPage = () => {
+const SingleProductPage = () => {
   const { postId } = useParams();
   const goBack = () => navigate(-1);
   const navigate = useNavigate();
@@ -11,8 +11,7 @@ const SinglePostPage = () => {
     data: post,
     isFetching,
     isError,
-    // isSuccess
-  } = postAPI.useGetSinglePostQuery(postId);
+  } = productAPI.useGetSinglePostQuery(postId);
   return (
     <>
       <Button type="text" onClick={goBack} icon={<ArrowLeftOutlined />}>
@@ -30,6 +29,7 @@ const SinglePostPage = () => {
           <Descriptions title={post.title} layout="vertical">
             <Descriptions.Item label="Price">${post.price}</Descriptions.Item>
             <Descriptions.Item label="Rating">{post.rating}</Descriptions.Item>
+            <Descriptions.Item label="Color">{post.color}</Descriptions.Item>
             <Descriptions.Item label="Description">
               {post.description}
             </Descriptions.Item>
@@ -40,4 +40,4 @@ const SinglePostPage = () => {
   );
 };
 
-export default SinglePostPage;
+export default SingleProductPage;

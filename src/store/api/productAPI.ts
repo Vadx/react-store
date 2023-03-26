@@ -10,8 +10,8 @@ interface ISort {
   colors?: string[];
 }
 
-export const postAPI = createApi({
-  reducerPath: "postAPI",
+export const productAPI = createApi({
+  reducerPath: "productAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: `${BASE_URL}`,
   }),

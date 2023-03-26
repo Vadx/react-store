@@ -1,13 +1,13 @@
 import React from "react";
-import { postAPI } from "../store/api/postAPI";
-import PostItem from "./PostItem";
+import { productAPI } from "../store/api/productAPI";
+import ProductItem from "./ProductItem";
 import { Col, Divider, Input, Row, Layout } from "antd";
-import SpinnerPostList from "./SpinnerPostList";
+import SpinnerList from "./SpinnerList";
 import { StoreColors } from "../models/CommonTypes";
 
 const { Content, Sider } = Layout;
 
-const PostList = () => {
+const ProductList = () => {
   const [searchTitle, setSearchTitle] = React.useState<string>("");
   const [sortOrder, setSortOrder] = React.useState<
     "PriceLowToHigh" | "PriceHighToLow" | "TopRatingFirst"
@@ -21,7 +21,7 @@ const PostList = () => {
     error,
     isLoading,
     isFetching,
-  } = postAPI.useFetchAllPostsQuery({
+  } = productAPI.useFetchAllPostsQuery({
     searchTitle: searchTitle,
     sortBy: sortOrder,
     minPrice: minPrice,
@@ -173,11 +173,11 @@ const PostList = () => {
           </label>
         </Sider>
         <Content>
-          {(isLoading || isFetching) && <SpinnerPostList />}
+          {(isLoading || isFetching) && <SpinnerList />}
           <Row gutter={{ xs: 6, sm: 12, md: 22, lg: 28 }}>
             {posts?.map((post) => (
               <Col className="gutter-row" span={8} key={post.id}>
-                <PostItem post={post} />
+                <ProductItem post={post} />
               </Col>
             ))}
           </Row>
@@ -187,4 +187,4 @@ const PostList = () => {
   );
 };
 
-export default PostList;
+export default ProductList;

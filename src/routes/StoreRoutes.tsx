@@ -1,6 +1,6 @@
 import StoreLayout from "../layouts/StoreLayout";
 import StorePage from "../pages/StorePage";
-import SinglePostPage from "../pages/SinglePostPage";
+import SingleProductPage from "../pages/SingleProductPage";
 import ErrorRouterElement from "./ErrorRouterElement";
 
 const StoreRoutes = {
@@ -14,7 +14,7 @@ const StoreRoutes = {
     },
     {
       path: "/store/:postId",
-      element: <SinglePostPage />,
+      element: <SingleProductPage />,
     },
   ],
 };
