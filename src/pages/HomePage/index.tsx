@@ -1,6 +1,9 @@
 import React from "react";
-import { Button, Card, Divider, Typography } from "antd";
+import { Button, Card, Divider, Space, Typography } from "antd";
 import Seo from "../../components/SEO";
+import { Link } from "react-router-dom";
+import { GithubOutlined, CompassOutlined } from "@ant-design/icons";
+
 const { Title, Text } = Typography;
 
 const gridStyle: React.CSSProperties = {
@@ -26,14 +29,22 @@ const HomePage: React.FC = () => {
       </div>
 
       <div className="alignCenter">
-        <Button
-          href="https://github.com/Vadx/react-store"
-          target="_blank"
-          size="large"
-          type="primary"
-        >
-          Project GitHub Repository
-        </Button>
+        <Space>
+          <Button
+            href="https://github.com/Vadx/react-store"
+            target="_blank"
+            size="large"
+            type="primary"
+            icon={<GithubOutlined />}
+          >
+            Project GitHub Repository
+          </Button>
+          <Link to="/store">
+            <Button size="large" icon={<CompassOutlined />}>
+              Go to Product List
+            </Button>
+          </Link>
+        </Space>
       </div>
       <Divider />
       <Card title="🎬 Features" style={{ width: "100%", marginBottom: 30 }}>
