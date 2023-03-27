@@ -79,7 +79,6 @@ const ProductList = () => {
     <Suspense fallback={<Spin size="large" />}>
       <Layout>
         <Divider orientation="center">All Products</Divider>
-        {error && <h1>Something wrong...</h1>}
 
         <Row justify="space-between">
           <Col span={12} style={{ alignSelf: "center" }}>
@@ -119,6 +118,8 @@ const ProductList = () => {
         </Row>
 
         <Divider />
+
+        {error && <h1>Something wrong...</h1>}
 
         <Content>
           {(isLoading || isFetching) && (
