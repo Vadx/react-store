@@ -2,6 +2,7 @@ import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
 import FooterSite from "../../components/UI/FooterSite";
 import HeaderSite from "../../components/UI/HeaderSite";
+import { motion } from "framer-motion";
 
 const { Content } = Layout;
 
@@ -19,7 +20,13 @@ export default function StoreLayout() {
             maxWidth: 1200,
           }}
         >
-          <Outlet />
+          <motion.div
+            className="box"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <Outlet />
+          </motion.div>
         </Content>
         <FooterSite />
       </Layout>
