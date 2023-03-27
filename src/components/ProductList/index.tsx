@@ -1,7 +1,7 @@
 import React from "react";
 import { productAPI } from "../../store/api/productAPI";
 import ProductItem from "../ProductItem";
-import { Col, Divider, Row, Layout, Popover, Button } from "antd";
+import { Col, Divider, Row, Layout, Popover, Button, Empty, Space } from "antd";
 import SpinnerList from "../SpinnerList";
 import { SortProductsType, StoreColors } from "../../models/CommonTypes";
 import FilterProducts from "./containers/FilterProducts";
@@ -117,18 +117,26 @@ const ProductList = () => {
         <Content>
           {(isLoading || isFetching) && <SpinnerList />}
           <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-            {posts?.map((post) => (
-              <Col
-                className="gutter-row"
-                xs={{ span: 24, offset: 0 }}
-                sm={{ span: 12, offset: 0 }}
-                lg={{ span: 8, offset: 0 }}
-                key={post.id}
-                style={{ marginBottom: 20 }}
-              >
-                <ProductItem post={post} />
+            {posts && posts.length ? (
+              posts?.map((post) => (
+                <Col
+                  className="gutter-row"
+                  xs={{ span: 24, offset: 0 }}
+                  sm={{ span: 12, offset: 0 }}
+                  lg={{ span: 8, offset: 0 }}
+                  key={post.id}
+                  style={{ marginBottom: 20 }}
+                >
+                  <ProductItem post={post} />
+                </Col>
+              ))
+            ) : (
+              <Col span={24}>
+                <div className="empty-wrap">
+                  <Empty />
+                </div>
               </Col>
-            ))}
+            )}
           </Row>
         </Content>
       </Layout>

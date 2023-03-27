@@ -1,7 +1,7 @@
 import { Card, Divider, Typography, Space } from "antd";
 import { IProduct } from "../models/IProduct";
 import { Link } from "react-router-dom";
-import { LikeOutlined, StarOutlined } from "@ant-design/icons";
+import { BgColorsOutlined, StarOutlined } from "@ant-design/icons";
 import React from "react";
 
 const { Meta } = Card;
@@ -22,6 +22,7 @@ const ProductItem = ({ post }: PostItemProps) => {
   return (
     <Link to={`/store/${post.id}`}>
       <Card
+        hoverable
         style={{ width: "100%" }}
         cover={<img alt="example" src={post.thumbnail} />}
         actions={[
@@ -31,7 +32,7 @@ const ProductItem = ({ post }: PostItemProps) => {
             key="list-vertical-star-o"
           />,
           <IconText
-            icon={LikeOutlined}
+            icon={BgColorsOutlined}
             text={`${post.color}`}
             key="list-vertical-like-o"
           />,

@@ -90,6 +90,15 @@ footer.site-footer {
   outline: none;
 }
 
+.empty-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 40px;
+}
+
 /* common styles: */
 .alignCenter {
   text-align: center;
