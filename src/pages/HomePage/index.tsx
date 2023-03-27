@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Divider, Typography } from "antd";
+import { Button, Card, Divider, Typography } from "antd";
 import Seo from "../../components/SEO";
 const { Title } = Typography;
 
@@ -23,6 +23,17 @@ const HomePage: React.FC = () => {
         <Title level={2} type="secondary">
           TypeScript, Ant Design, React Toolkit, RTK Query
         </Title>
+      </div>
+
+      <div className="alignCenter">
+        <Button
+          href="https://github.com/Vadx/react-store"
+          target="_blank"
+          size="large"
+          type="primary"
+        >
+          Project GitHub Repository
+        </Button>
       </div>
       <Divider />
       <Card title="🎬 Features" style={{ width: "100%", marginBottom: 30 }}>
