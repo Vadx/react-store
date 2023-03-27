@@ -1,4 +1,4 @@
-import { Col, Divider, Row } from "antd";
+import { Col, Divider, Input, Row } from "antd";
 
 interface FilterProductsProps {
   filterProductMinPrice: (event: any) => void;
@@ -23,22 +23,23 @@ const FilterProducts = ({
           <label className="filter-label" htmlFor="min-price">
             Min Price:
           </label>
-          <input
-            type="number"
+          <Input
             id="min-price"
-            value={minPriceValue}
+            type="number"
             onChange={filterProductMinPrice}
+            value={minPriceValue}
           />
         </Col>
         <Col span={12} style={{ alignSelf: "center" }}>
           <label className="filter-label" htmlFor="max-price">
             Max Price:
           </label>
-          <input
+          <Input
             type="number"
             id="max-price"
             value={maxPriceValue}
             onChange={filterProductMaxPrice}
+            className="ant-input-number-input"
           />
         </Col>
       </Row>
