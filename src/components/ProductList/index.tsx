@@ -19,6 +19,7 @@ const ProductList = () => {
   const [maxPrice, setMaxPrice] = React.useState<number | undefined>();
   const [colors, setColors] = React.useState<StoreColors[] | string[]>([]);
   const [isPending, startTransition] = React.useTransition();
+  const [openFilter, setOpenFilter] = React.useState<boolean>(false);
 
   const {
     data: posts,
@@ -64,8 +65,6 @@ const ProductList = () => {
       setColors((prevColors) => prevColors.filter((color) => color !== value));
     }
   };
-
-  const [openFilter, setOpenFilter] = React.useState(false);
 
   const hide = () => {
     setOpenFilter(false);

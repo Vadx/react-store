@@ -7,7 +7,7 @@ const FooterSite = () => {
   return (
     <Footer className="site-footer">
       <Divider />
-      <Text strong>React/TS Blog Template</Text>
+      <Text strong>React/TS Store Template</Text>
     </Footer>
   );
 };

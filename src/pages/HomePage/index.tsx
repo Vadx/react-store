@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, Divider, Typography } from "antd";
 import Seo from "../../components/SEO";
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const gridStyle: React.CSSProperties = {
   width: "25%",
@@ -54,9 +54,9 @@ const HomePage: React.FC = () => {
       >
         <p>
           An e-commerce project using React, Redux-Toolkit, RTK-query, Ant
-          Design, and animation Framer-motion. The e-commerce system you have
-          designed and implemented has a product gallery page that allows users
-          to search, filter, and sort products easily.
+          Design, and animation Framer-motion. The e-commerce system designed
+          and implemented has a product gallery page that allows users to
+          search, filter, and sort products easily.
         </p>
         <p>
           Overall, this e-commerce project has all the necessary features to
@@ -71,13 +71,17 @@ const HomePage: React.FC = () => {
         bordered={false}
         style={{ width: "100%", marginBottom: 30 }}
       >
-        <p>- Home Page</p>
         <p>
-          - Store Page (list of products, filter products, sort products,
-          search)*
+          - <Text code>Home Page</Text>
         </p>
-        <p>- Product Page </p>
-        <p>*- Randomly generated data (- Json-server as a backend)</p>
+        <p>
+          - <Text code>Store Page:</Text> list of products, filter products
+          (colors, min/max price), sort products, search, animation product list
+        </p>
+        <p>
+          - <Text code>Product Page</Text>{" "}
+        </p>
+        <p>- Randomly generated data (Json-server as a backend)</p>
       </Card>
     </>
   );

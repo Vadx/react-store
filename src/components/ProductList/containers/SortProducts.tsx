@@ -2,7 +2,7 @@ import { SortProductsType } from "../../../models/CommonTypes";
 
 interface SortProductsProps {
   sortOrderValue: SortProductsType;
-  sortOrderChange: (event: any) => void;
+  sortOrderChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const SortProducts = ({
