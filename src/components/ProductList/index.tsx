@@ -1,13 +1,14 @@
 import React from "react";
 import { productAPI } from "../../store/api/productAPI";
 import ProductItem from "../ProductItem";
-import { Col, Divider, Row, Layout, Popover, Button, Empty } from "antd";
+import { Col, Divider, Row, Layout, Popover, Button, Empty, Spin } from "antd";
 import SpinnerList from "../SpinnerList";
 import { SortProductsType, StoreColors } from "../../models/CommonTypes";
 import FilterProducts from "./containers/FilterProducts";
 import SortProducts from "./containers/SortProducts";
 import { FilterOutlined } from "@ant-design/icons";
 import SearchProducts from "./containers/SearchProducts";
+import { motion } from "framer-motion";
 
 const { Content } = Layout;
 
@@ -115,7 +116,16 @@ const ProductList = () => {
         <Divider />
 
         <Content>
-          {(isLoading || isFetching) && <SpinnerList />}
+          {(isLoading || isFetching) && (
+            <motion.div
+              className="box"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <SpinnerList />
+            </motion.div>
+          )}
           <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             {posts && posts.length ? (
               posts?.map((post) => (
@@ -127,7 +137,14 @@ const ProductList = () => {
                   key={post.id}
                   style={{ marginBottom: 20 }}
                 >
-                  <ProductItem post={post} />
+                  <motion.div
+                    className="box"
+                    initial={{ opacity: 0, y: "-5%" }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <ProductItem post={post} />
+                  </motion.div>
                 </Col>
               ))
             ) : (

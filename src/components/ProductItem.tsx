@@ -5,7 +5,7 @@ import { BgColorsOutlined, StarOutlined } from "@ant-design/icons";
 import React from "react";
 
 const { Meta } = Card;
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 export interface PostItemProps {
   post: IProduct;
@@ -56,15 +56,14 @@ const ProductItem = ({ post }: PostItemProps) => {
             key="list-vertical-star-o"
           />,
           <IconColor color={`${post.color}`} />,
+          <Text style={{ margin: 0, fontWeight: 600 }}>
+            <Text type="secondary">Price: </Text>
+            <Text code>${post.price}</Text>
+          </Text>,
         ]}
       >
         <Meta title={post.title} />
-        <Divider>
-          <Title level={3}>
-            <Text type="secondary">Price: </Text>
-            <Text code>${post.price}</Text>
-          </Title>
-        </Divider>
+        <Divider />
         <Text type="secondary">{post.description.substring(0, 70)}</Text>
       </Card>
     </Link>

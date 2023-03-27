@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "title": "iPhone 9",
+      "title": "Nike Air Max 90 GTX shoes",
       "description": "An apple mobile which is nothing like apple An apple mobile which is nothing like apple An apple mobile which is nothing like apple An apple mobile which is nothing like apple",
       "price": 549,
       "discountPercentage": 12.96,
@@ -22,7 +22,7 @@
     },
     {
       "id": 2,
-      "title": "iPhone X",
+      "title": "Nike Blazer mid '77 vintage sneakers",
       "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
       "price": 899,
       "discountPercentage": 17.94,
@@ -41,7 +41,7 @@
     },
     {
       "id": 3,
-      "title": "Samsung Universe 9",
+      "title": "Nike Air Force 1 '07 sneakers",
       "description": "Samsung's new variant which goes beyond Galaxy to the Universe Samsung's new variant which goes beyond Galaxy to the Universe",
       "price": 1249,
       "discountPercentage": 15.46,
@@ -55,7 +55,7 @@
     },
     {
       "id": 4,
-      "title": "OPPOF19",
+      "title": "Nike Dunk low sneakers",
       "description": "OPPO F19 is officially announced on April 2021.",
       "price": 280,
       "discountPercentage": 17.91,
@@ -75,7 +75,7 @@
     },
     {
       "id": 5,
-      "title": "Huawei P30",
+      "title": "Nike x Stüssy Air Penny 2",
       "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
       "price": 499,
       "discountPercentage": 10.58,
@@ -93,7 +93,7 @@
     },
     {
       "id": 6,
-      "title": "MacBook Pro",
+      "title": "Air Jordan 1 High '85 shoes",
       "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
       "price": 1749,
       "discountPercentage": 11.02,
@@ -112,7 +112,7 @@
     },
     {
       "id": 7,
-      "title": "Samsung Galaxy Book",
+      "title": "Adidas UltraBoost 22 sneakers",
       "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
       "price": 1499,
       "discountPercentage": 4.15,
@@ -131,7 +131,7 @@
     },
     {
       "id": 8,
-      "title": "Microsoft Surface Laptop 4",
+      "title": "Adidas Gazelle shoes",
       "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
       "price": 1499,
       "discountPercentage": 10.23,
@@ -151,7 +151,7 @@
     },
     {
       "id": 9,
-      "title": "Infinix INBOOK",
+      "title": "Adidas Forum 84 shoes",
       "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
       "price": 1099,
       "discountPercentage": 11.83,
@@ -171,7 +171,7 @@
     },
     {
       "id": 10,
-      "title": "HP Pavilion 15-DK1056WM",
+      "title": "New Balance 993 sneakers",
       "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
       "price": 1099,
       "discountPercentage": 6.18,
@@ -190,7 +190,7 @@
     },
     {
       "id": 11,
-      "title": "perfume Oil",
+      "title": "Converse One Star Pro shoe",
       "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
       "price": 13,
       "discountPercentage": 8.4,
@@ -209,7 +209,7 @@
     },
     {
       "id": 12,
-      "title": "Brown Perfume",
+      "title": "Vans Sk8-Hi classic sneakers",
       "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
       "price": 40,
       "discountPercentage": 15.66,
@@ -229,7 +229,7 @@
     },
     {
       "id": 13,
-      "title": "Fog Scent Xpressio Perfume",
+      "title": "Vans UA Half Cab 33 DX Jungle Clash shoes",
       "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
       "price": 13,
       "discountPercentage": 8.14,
@@ -249,7 +249,7 @@
     },
     {
       "id": 14,
-      "title": "Non-Alcoholic Concentrated Perfume Oil",
+      "title": "Reebok Club C sneakers",
       "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
       "price": 120,
       "discountPercentage": 15.6,
@@ -268,7 +268,7 @@
     },
     {
       "id": 15,
-      "title": "Eau De Perfume Spray",
+      "title": "Reebok classic leather sneaker",
       "description": "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
       "price": 30,
       "discountPercentage": 10.99,
@@ -288,7 +288,7 @@
     },
     {
       "id": 16,
-      "title": "Hyaluronic Acid Serum",
+      "title": "Puma Suede classic xxi sneakers",
       "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
       "price": 19,
       "discountPercentage": 13.31,
@@ -308,7 +308,7 @@
     },
     {
       "id": 17,
-      "title": "Tree Oil 30ml",
+      "title": "Puma Rocket sneakers",
       "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
       "price": 12,
       "discountPercentage": 4.09,
@@ -327,7 +327,7 @@
     },
     {
       "id": 18,
-      "title": "Oil Free Moisturizer 100ml",
+      "title": "Saucony Jazz Court shoes",
       "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
       "price": 40,
       "discountPercentage": 13.1,
@@ -366,7 +366,7 @@
     },
     {
       "id": 20,
-      "title": "Freckle Treatment Cream- 15gm",
+      "title": "Asics Gel-Quantum 180 VII shoes",
       "description": "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
       "price": 70,
       "discountPercentage": 16.99,
