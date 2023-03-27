@@ -13,7 +13,7 @@ export default function LandingLayout() {
       <Content
         className="site-layout"
         style={{
-          padding: "0 50px",
+          padding: "0 20px",
           margin: " 84px auto 0",
           width: "100%",
           maxWidth: 1200,

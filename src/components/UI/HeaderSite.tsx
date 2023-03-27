@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Menu, Row, Col, Space } from "antd";
+import { Layout, Menu, Row, Col } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import Logo from "./Logo";
 import type { MenuProps } from "antd";
@@ -19,14 +19,20 @@ const HeaderSite: React.FC = () => {
       data-theme="light"
       className="site-layout-background site-layout-header"
     >
-      <Row>
-        <Col span={8}>
-          <Logo logoColor="#333" logoSize={20}>
-            ReactStore
-          </Logo>
-        </Col>
-        <Col span={8} offset={8}>
-          <Space>
+      <div
+        style={{
+          margin: "0 auto",
+          width: "100%",
+          maxWidth: 1200,
+        }}
+      >
+        <Row justify="space-between">
+          <Col>
+            <Logo logoColor="#333" logoSize={20}>
+              ReactStore
+            </Logo>
+          </Col>
+          <Col>
             <Menu
               style={{ border: 0, background: "transparent" }}
               theme="light"
@@ -35,9 +41,9 @@ const HeaderSite: React.FC = () => {
               selectedKeys={[location.pathname]}
               items={items}
             />
-          </Space>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </div>
     </Header>
   );
 };

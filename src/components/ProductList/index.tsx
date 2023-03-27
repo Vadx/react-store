@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { productAPI } from "../../store/api/productAPI";
 import ProductItem from "../ProductItem";
 import { Col, Divider, Row, Layout, Popover, Button, Empty, Spin } from "antd";
@@ -18,6 +18,7 @@ const ProductList = () => {
   const [minPrice, setMinPrice] = React.useState<number | undefined>();
   const [maxPrice, setMaxPrice] = React.useState<number | undefined>();
   const [colors, setColors] = React.useState<StoreColors[] | string[]>([]);
+  const [isPending, startTransition] = React.useTransition();
 
   const {
     data: posts,
@@ -33,7 +34,10 @@ const ProductList = () => {
   });
 
   const onChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTitle(event.target.value);
+    startTransition(() => {
+      // Mark updates as transitions
+      setSearchTitle(event.target.value);
+    });
   };
 
   const handleSortOrderChange = (
@@ -72,7 +76,7 @@ const ProductList = () => {
   };
 
   return (
-    <>
+    <Suspense fallback={<Spin size="large" />}>
       <Layout>
         <Divider orientation="center">All Products</Divider>
         {error && <h1>Something wrong...</h1>}
@@ -85,6 +89,7 @@ const ProductList = () => {
             />
           </Col>
           <Col span={12} style={{ textAlign: "right" }}>
+            {isPending && <Spin size="small" />}
             <Popover
               content={
                 <>
@@ -157,7 +162,7 @@ const ProductList = () => {
           </Row>
         </Content>
       </Layout>
-    </>
+    </Suspense>
   );
 };
 
