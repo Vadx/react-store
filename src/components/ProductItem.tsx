@@ -11,11 +11,35 @@ export interface PostItemProps {
   post: IProduct;
 }
 
-const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
-  <Space>
+const IconText = ({
+  icon,
+  text,
+  color,
+}: {
+  icon: React.FC;
+  text: string;
+  color?: string;
+}) => (
+  <Space style={{ color: `${color}` }}>
     {React.createElement(icon)}
     {text}
   </Space>
+);
+
+const IconColor = ({ color }: { color: string }) => (
+  <div>
+    <BgColorsOutlined style={{ fontSize: "18px", marginRight: 5 }} />
+    <span
+      style={{
+        backgroundColor: `${color}`,
+        width: 16,
+        height: 16,
+        borderRadius: "50%",
+        border: "1px solid #777",
+        display: "inline-flex",
+      }}
+    />
+  </div>
 );
 
 const ProductItem = ({ post }: PostItemProps) => {
@@ -31,11 +55,7 @@ const ProductItem = ({ post }: PostItemProps) => {
             text={`${post.rating}`}
             key="list-vertical-star-o"
           />,
-          <IconText
-            icon={BgColorsOutlined}
-            text={`${post.color}`}
-            key="list-vertical-like-o"
-          />,
+          <IconColor color={`${post.color}`} />,
         ]}
       >
         <Meta title={post.title} />

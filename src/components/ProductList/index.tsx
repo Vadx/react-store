@@ -1,7 +1,7 @@
 import React from "react";
 import { productAPI } from "../../store/api/productAPI";
 import ProductItem from "../ProductItem";
-import { Col, Divider, Row, Layout, Popover, Button, Empty, Space } from "antd";
+import { Col, Divider, Row, Layout, Popover, Button, Empty } from "antd";
 import SpinnerList from "../SpinnerList";
 import { SortProductsType, StoreColors } from "../../models/CommonTypes";
 import FilterProducts from "./containers/FilterProducts";

@@ -1,4 +1,5 @@
 import { Col, Divider, Input, Row } from "antd";
+import CheckboxColor from "../../CheckboxColor";
 
 interface FilterProductsProps {
   filterProductMinPrice: (event: any) => void;
@@ -45,66 +46,12 @@ const FilterProducts = ({
       </Row>
       <Divider />
       <span className="filter-label">Colors: </span>
-      <label htmlFor="color-black">
-        <input
-          type="checkbox"
-          id="color-black"
-          name="color"
-          value="Black"
-          onChange={filterProductColor}
-        />
-        Black
-      </label>
-      <label htmlFor="color-red">
-        <input
-          type="checkbox"
-          id="color-red"
-          name="color"
-          value="Red"
-          onChange={filterProductColor}
-        />
-        Red
-      </label>
-      <label htmlFor="color-white">
-        <input
-          type="checkbox"
-          id="color-white"
-          name="color"
-          value="White"
-          onChange={filterProductColor}
-        />
-        White
-      </label>
-      <label htmlFor="color-blue">
-        <input
-          type="checkbox"
-          id="color-blue"
-          name="color"
-          value="Blue"
-          onChange={filterProductColor}
-        />
-        Blue
-      </label>
-      <label htmlFor="color-gray">
-        <input
-          type="checkbox"
-          id="color-gray"
-          name="color"
-          value="Gray"
-          onChange={filterProductColor}
-        />
-        Gray
-      </label>
-      <label htmlFor="color-brown">
-        <input
-          type="checkbox"
-          id="color-brown"
-          name="color"
-          value="Brown"
-          onChange={filterProductColor}
-        />
-        Brown
-      </label>
+      <CheckboxColor label="Black" onCheckboxChange={filterProductColor} />
+      <CheckboxColor label="Red" onCheckboxChange={filterProductColor} />
+      <CheckboxColor label="White" onCheckboxChange={filterProductColor} />
+      <CheckboxColor label="Blue" onCheckboxChange={filterProductColor} />
+      <CheckboxColor label="Gray" onCheckboxChange={filterProductColor} />
+      <CheckboxColor label="Brown" onCheckboxChange={filterProductColor} />
     </>
   );
 };
