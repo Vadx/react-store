@@ -64,6 +64,32 @@ footer.site-footer {
   right: 10px;
 }
 
+.label-color {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.search-products {
+  max-width: 260px;
+}
+
+.sort-label {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.filter-label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+#sortOrder {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
 /* common styles: */
 .alignCenter {
   text-align: center;

@@ -1,41 +1,52 @@
-import { Card, Divider, Typography } from "antd";
+import { Card, Divider, Typography, Space } from "antd";
 import { IProduct } from "../models/IProduct";
 import { Link } from "react-router-dom";
-import { ArrowRightOutlined } from "@ant-design/icons";
+import { LikeOutlined, StarOutlined } from "@ant-design/icons";
+import React from "react";
 
 const { Meta } = Card;
-const { Title, Text } = Typography;
+const { Text, Title } = Typography;
 
 export interface PostItemProps {
   post: IProduct;
 }
 
+const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
+  <Space>
+    {React.createElement(icon)}
+    {text}
+  </Space>
+);
+
 const ProductItem = ({ post }: PostItemProps) => {
   return (
-    <>
+    <Link to={`/store/${post.id}`}>
       <Card
-        style={{ width: "100%", marginBottom: 20 }}
+        style={{ width: "100%" }}
         cover={<img alt="example" src={post.thumbnail} />}
         actions={[
-          <Link to={`/store/${post.id}`}>
-            Read more <ArrowRightOutlined />
-          </Link>,
+          <IconText
+            icon={StarOutlined}
+            text={`${post.rating}`}
+            key="list-vertical-star-o"
+          />,
+          <IconText
+            icon={LikeOutlined}
+            text={`${post.color}`}
+            key="list-vertical-like-o"
+          />,
         ]}
       >
-        <Link to={`/store/${post.id}`}>
-          <Meta title={post.title} />{" "}
-        </Link>
+        <Meta title={post.title} />
         <Divider>
           <Title level={3}>
             <Text type="secondary">Price: </Text>
             <Text code>${post.price}</Text>
           </Title>
         </Divider>
-        <Title level={5}>Rating: {post.rating}</Title>
-        <Title level={5}>Color: {post.color}</Title>
         <Text type="secondary">{post.description.substring(0, 70)}</Text>
       </Card>
-    </>
+    </Link>
   );
 };
 
