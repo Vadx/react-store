@@ -28,9 +28,11 @@ const HeaderSite: React.FC = () => {
       >
         <Row justify="space-between">
           <Col>
-            <Logo logoColor="#333" logoSize={20}>
-              ReactStore
-            </Logo>
+            <NavLink to="/">
+              <Logo logoColor="#333" logoSize={20}>
+                eStore
+              </Logo>
+            </NavLink>
           </Col>
           <Col>
             <Menu

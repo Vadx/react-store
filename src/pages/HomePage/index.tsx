@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
           </Button>
           <Link to="/store">
             <Button size="large" icon={<CompassOutlined />}>
-              Go to Product List
+              Go to Store Page
             </Button>
           </Link>
         </Space>
