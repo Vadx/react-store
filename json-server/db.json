@@ -51,7 +51,7 @@
       "color": "Brown",
       "category": "smartphones",
       "thumbnail": "https://api.lorem.space/image/shoes?w=640&h=480&r=7901",
-      "images": ["https://i.dummyjson.com/data/products/3/1.jpg"]
+      "images": []
     },
     {
       "id": 4,
